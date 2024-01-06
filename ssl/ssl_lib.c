@@ -2809,7 +2809,7 @@ static int cipher_list_tls12_num(STACK_OF(SSL_CIPHER) *sk)
         return 0;
     for (i = 0; i < sk_SSL_CIPHER_num(sk); ++i) {
         c = sk_SSL_CIPHER_value(sk, i);
-        if (c->min_tls >= TLS1_3_VERSION)
+        if (c->min_tls > TLS1_3_VERSION)
             continue;
         num++;
     }
